@@ -15,25 +15,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository
-        uses: actions/checkout@v4 # Updated from v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4 # Updated from v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./agri-voice-assistant (2)
+        working-directory: './agri-voice-assistant (2)' # <-- QUOTES ADDED HERE
 
       - name: Build the project
         run: npm run build
-        working-directory: ./agri-voice-assistant (2)
+        working-directory: './agri-voice-assistant (2)' # <-- QUOTES ADDED HERE
 
       - name: Upload the build artifact
-        uses: actions/upload-pages-artifact@v3 # Updated from v2
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./agri-voice-assistant (2)/dist
+          path: './agri-voice-assistant (2)/dist' # <-- QUOTES ADDED HERE
 
   deploy:
     needs: build
@@ -44,4 +44,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # Updated from v2
+        uses: actions/deploy-pages@v4
